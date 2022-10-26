@@ -1,0 +1,1720 @@
+@charset "utf-8";
+
+
+body{
+  overflow-x: hidden;
+}
+/* 배너영역 컨테이너*/
+#wrap{
+  overflow: hidden;
+}
+.banner-area .container{
+  /* height: 100vh; */
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* 해더영역 */
+header{
+  position: fixed;
+  right: 0;
+  /* height: 910px; */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-right: 32px;
+  z-index: 99;
+}
+
+/* 로고 */
+.header .logo {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+.header .logo svg{
+  width: 300px;
+  fill: #fff;
+  transition: all 0.35s;
+}
+
+/* 메인메뉴 */
+.main-menu{
+  margin-bottom: 100px;
+}
+.main-menu li{
+  margin-bottom: 32px;
+  text-align: center;
+  opacity: .7;
+  
+}
+.main-menu li a{
+  font-size: 1.25rem;
+  color: #A8A8A8;
+  transition: 0.3s;
+}
+.main-menu li:last-child{
+  margin-bottom: 0;
+}
+
+.main-menu li:hover a{
+  opacity: 1;
+  color:#343434;
+}
+
+
+
+/* 유저메뉴 */
+.user-menu{
+  display: flex;
+  align-items: center;
+  margin-bottom: 72px;
+}
+
+/* 카트 */
+.user-menu .user-item-kr{
+  margin-right: 30px;
+}
+
+.user-menu .user-item-kr svg{
+  fill: #EFEFEF;
+  width: 26px;
+  height: 23px;
+  opacity: .7;
+}
+
+/* 로그인 */
+.user-menu .user-item-login{
+  margin-right: 30px;
+  text-align: center;
+  opacity: .8;
+  border: #343434 1px solid;
+  padding: 10px 20px;
+}
+.user-menu .user-item-login a{
+  font-size: 0.875rem;
+  color: #A8A8A8;
+}
+
+/* 카트 */
+.user-menu .user-item-cart svg{
+  stroke: #A8A8A8;
+  opacity: .8;
+  width: 30px;
+  height: 33px;
+}
+
+
+/* 탑버튼 */
+.top-btn{
+  border: #343434 2px solid;
+  opacity: .7;
+  padding: 10px 10px 8px 10px;
+  margin-bottom: 72px;
+  cursor: pointer;
+  display: none;  
+}
+.top-btn svg{
+  stroke-width: 2px;
+}
+
+.m-top-btn{
+  display: none;
+}
+
+.banner-area .m-header,
+.banner-area .m-nav{
+  display: none;
+}
+/* //픽스드영역 */
+
+
+/* 검색창영역 */
+/* 서브 검색창 전체박스 */
+.search-box{
+  position: absolute;
+  top: 0;
+  height: 450px;
+  width: 100vw;
+  background-color: #fff;
+  z-index: 999999;
+  opacity: 0;
+  display: none;
+  transition: all 0.35s;
+  --in:initial;
+  animation: var(--in);
+}
+@keyframes fadeIn {
+  100%{
+    opacity: 1;
+  } 
+}
+
+/* flex 박스 */
+.search-box .search-box-top{
+  width: 100%;
+  height: 80px;
+  position: relative;
+  display: flex;
+  margin-top: 32px;
+}
+
+/* 서브 검색창 */
+.search-box .search-box-top #sub-search{
+  outline: none;
+  width: 26vw;
+  padding: 12px 18px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: #343434 1px solid;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+#sub-search:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
+  color:transparent;
+}
+
+
+/* x버튼 */
+.search-box .search-box-top .x-btn-box{
+  position: absolute;
+  right: 32px;
+}
+.search-box .search-box-top .x-btn{
+  width: 32px;
+  height: 32px;
+  background-color: #343434;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(45deg);
+}
+.search-box .search-box-top .x-btn::after{
+  content: "";
+  width: 15px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+  background-color: #fff;
+}
+.search-box .search-box-top .x-btn::before{
+  content: "";
+  width: 15px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%) rotate(90deg);
+  background-color: #fff;
+}
+
+/* 서브 검색창 메인메뉴 */
+.search-box .search-main-box{
+  display: flex;
+  justify-content: center;
+}
+/* 인기검색어 */
+.search-box .search-main-box .popular-box{
+  width: 200px;
+}
+.search-box .search-main-box .popular-box span{
+  font-size: 0.875rem;
+  color: #c4c4c4;
+}
+.search-box .search-main-box .popular-box .popular{
+  margin-top: 32px;
+}
+.search-box .search-main-box .popular-box .popular li{
+  margin-top: 12px;
+  text-align: left;
+}
+.search-box .search-main-box .popular-box .popular li:first-child{
+  margin-top: 0;
+}
+.search-box .search-main-box .popular-box .popular li a{
+  font-size: 1rem;
+  color: #343434;
+  transition: 0.3s;
+}
+.search-box .search-main-box .popular-box .popular li:hover a{
+  color: #c4c4c4;
+}
+
+/* 다양한 컬렉션 */
+.search-box .search-main-box .collection-box span{
+  font-size: 0.875rem;
+  color: #c4c4c4;
+}
+/* 콜렉션상자 */
+.search-box .search-main-box .collection-box .collection{
+  display: flex;
+  width: 350px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+.search-box .search-main-box .collection-box .collection li{
+  text-align: center;
+  width: 25%;
+}
+.search-box .search-main-box .collection-box .collection li span{
+  color: #343434;
+  font-size: 0.75rem;
+}
+.search-box .search-main-box .collection-box .collection li a{
+  display: block;
+}
+
+.search-box .search-main-box .collection-box .collection li a img{
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+}
+
+.search-box .search-main-box .collection-box .collection .collection-margin{
+  margin-top: 24px;
+}
+/* //검색창 영역 */
+
+/* 배너 텍스트 영역 */
+.banner-txt-box{
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 99;
+}
+
+/* 배너검색창 */
+.banner-txt-box #main-search{
+  background-color: transparent;
+  border: #c4c4c4 1px solid;
+  padding: 8px 32px;
+  width: 11vw;
+  outline: none;
+  margin-bottom: 32px;
+  --ms:initial;
+  animation: var(--ms);
+}
+@keyframes main-input {
+  100%{
+    transform: scaleX(2) scaleY(1.5) translateY(-400%);
+    border-radius: 20px;
+    opacity: 0;
+  }
+}
+
+.banner-txt-box #main-search::placeholder{
+  color: #c4c4c4;
+  text-align: center;
+}
+/* click시 placeholder안보이게하기 */
+#main-search:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
+  color:transparent;
+}
+
+
+/* 배너 텍스트헤더 */
+.banner-txt-box h1{
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 32px;
+}
+
+/* 배너 버튼 */
+.banner-txt-box .banner-btn{
+  display: flex;
+  justify-content: center;
+}
+.banner-txt-box .banner-btn a{
+  font-size: 1rem;
+  color: #fff;
+  border: #343434 1px solid;
+}
+.banner-txt-box .banner-btn #view-btn{
+  padding: 1rem 2.5rem;
+  margin-right: 40px;
+  position: relative;
+  --a:initial;
+  overflow: hidden;
+}
+
+.banner-txt-box .banner-btn #view-btn::after{
+  content: "";
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--diameter);
+  height: var(--diameter);
+  transform: scale(0);
+  background-color: #fff;
+  pointer-events: none;
+  animation: var(--a);
+}
+
+@keyframes view-ripple {
+  100%{
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+
+.banner-txt-box .banner-btn #pay-btn{
+  padding: 1rem 3rem;
+  position: relative;
+  --b:initial;
+  overflow: hidden;
+}
+
+.banner-txt-box .banner-btn #pay-btn::after{
+  content: "";
+  position: absolute;
+  top: var(--top);
+  left: var(--left);
+  width: var(--diameter);
+  height: var(--diameter);
+  transform: scale(0);
+  background-color: #fff;
+  pointer-events: none;
+  animation: var(--b);
+}
+
+@keyframes pay-ripple {
+  100%{
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+
+
+
+/*// 배너 텍스트 영역 */
+
+
+/* 배너 스와이퍼 영역 */
+.swiper{
+  width: 50vw;
+  height: 100vh;
+}
+/* 스와이퍼 왼쪽 */
+.banner-l-slide1{
+  background: url(../gentlemonster/banner-img.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-l-slide2{
+  background: url(../gentlemonster/banner-img2.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-l-slide3{
+  background: url(../gentlemonster/banner-img3.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-l-slide4{
+  background: url(../gentlemonster/banner-img4.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-l-slide5{
+  background: url(../gentlemonster/banner-img5.jpg)no-repeat center;
+  background-size: cover;
+}
+/* 스와이퍼 오른쪽 */
+.banner-r-slide1{
+  background: url(../gentlemonster/banner1-img.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-r-slide2{
+  background: url(../gentlemonster/banner2-img.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-r-slide3{
+  background: url(../gentlemonster/banner3-img.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-r-slide4{
+  background: url(../gentlemonster/banner4-img.jpg)no-repeat center;
+  background-size: cover;
+}
+.banner-r-slide5{
+  background: url(../gentlemonster/banner5-img.jpg)no-repeat center;
+  background-size: cover;
+}
+/* 오른쪽 스와이퍼 돌려주기 */
+
+/*// 배너 스와이퍼 영역 */
+/* //배너 영역 */
+
+
+/* 스타일 영역 */
+/* 탑스토어영역 */
+.top-store{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #EFEFEF; */
+  padding: 20px 0;
+  position: relative;
+}
+/* 왼쪽 화살표부분 */
+
+.top-store .left-arrow{
+  position: absolute;
+  left: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.top-store .right-arrow{
+  position: absolute;
+  right: 20%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 전체보기 부분 */
+.top-store .all-view{
+  text-align: center;
+  font-size: 0.875rem;
+  color: #343434;
+  margin: 0 9px;
+  cursor: pointer;
+}
+
+.top-store .all-view .all-view-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border:  #343434 1px solid;
+  margin-bottom: 16px;
+  position: relative;
+}
+.top-store .all-view .all-view-img::after{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: #343434 solid 1px;
+}
+.top-store .all-view .all-view-img a img{
+  border-radius: 50%;
+}
+
+/* 가운데 슬라이드부분 */
+.top-store .mask{
+  width: 826px;
+  overflow: hidden;
+  position: relative;
+}
+.top-store .top-menu{
+  text-align: center;
+  display: flex;
+  transition: 0.5s;
+}
+
+.top-store .top-menu li {
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  margin: 0 9px;
+  margin-top: 8px;
+}
+
+
+.top-store .top-menu li .top-item-img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.top-store .top-menu li .top-item-img a{
+  display: inline-block;
+}
+
+
+.top-store .top-menu li .top-item-img::after{
+  content: "";
+  transition: 0.5s;
+  position: absolute;
+  left: 50%;
+  top: 37%;
+  transform: translate(-50%,-50%);
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: #343434 1px solid;
+  opacity: 0;
+}
+
+.top-store .top-menu li:hover .top-item-img::after{
+  opacity: 1;
+}
+
+
+.top-store .top-menu li span{
+  font-size: 0.875rem;
+  color: #343434;
+}
+/*// 탑스토어영역 */
+
+/* 모바일헤드 */
+.m-style{
+  display: none;
+}
+.m-head{
+  display: none;
+}
+
+/* 스타일 메인 컨텐츠 영역 */
+.style-main{
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  margin-top: 80px; 
+}
+.style-main:hover .rectangle1{
+  animation: change1 3000ms linear infinite forwards;
+} 
+.style-main:hover .rectangle2{
+  animation: change2 3000ms linear infinite forwards;
+}
+.style-main:hover .rectangle3{
+  animation: change3 3000ms linear infinite forwards;
+}
+.style-main:hover .style-main-bg{
+  animation: bgChange 300ms linear infinite forwards;
+}
+
+.style-main .style-main-bg{
+  width: 80vw;
+  height: 825px;
+  background: url(../gentlemonster/maincontentbg.svg)no-repeat center;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes bgChange {
+  25%{
+    background-image: url(../gentlemonster/style-bg2.svg);
+    background-size: contain;
+  }
+  75%{
+    background-image: url(../gentlemonster/style-bg3.svg);
+    background-size: contain;
+  }
+}
+
+
+.style-main .main-item{
+  opacity: .95;
+}
+
+.style-main .rectangle1{
+  width: 390px;
+  height: 470px;
+  background:url(../gentlemonster/black-1.jpg) no-repeat center;
+  background-size: cover;
+  transform: rotate(-3deg) translateX(5%);
+}
+@keyframes change1 {
+  25%{
+    content: url(../gentlemonster/가죽1.jpg);
+  }
+  75%{
+    content: url(../gentlemonster/나머지1.jpg);
+  }
+}
+.style-main .rectangle2{
+  width: 530px;
+  height: 620px;
+  background:url(../gentlemonster/black-2.jpg) no-repeat center;
+  background-size: cover;
+  transform: rotate(27deg);
+}
+@keyframes change2 {
+  25%{
+    content: url(../gentlemonster/가죽2.jpg);
+  }
+  75%{
+    content: url(../gentlemonster/나머지2.jpg);
+    
+  }
+}
+.style-main .rectangle3{
+  width: 410px;
+  height: 490px;
+  background:url(../gentlemonster/black-3.jpg) no-repeat center;
+  background-size: cover;
+  transform: rotate(15deg) translateX(-5%);
+}
+@keyframes change3 {
+  25%{
+    content: url(../gentlemonster/가죽3.jpg);
+    
+  }
+  75%{
+    content: url(../gentlemonster/나머지3.jpg);
+    
+  }
+}
+
+/* 스타일 메인 컨텐츠 영역 */
+/* //스타일영역 */
+
+/* 선글라스 영역 */
+.sunglasses-area .container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+}
+
+/* 왼쪽선글라스 이미지 */
+/* 선글라스 백그라운드 */
+.sunglasses-content{
+  background: url(../gentlemonster/선글라스bg.svg) no-repeat center;
+  background-size: contain;
+  height: 635px;
+  width: 530px;
+}
+.sunglasses-content .sunglasses-item{
+  width: 380px;
+  height: 250px;
+  transition: transform 100ms ease-out;
+}
+
+
+.sunglasses-content .trans1{
+  transform: translateY(10%) translateX(40%);
+}
+/* .sunglasses-content .trens1:hover{
+  transform: scale(1.2) translateY(10%) translateX(40%);
+}
+.sunglasses-content .trens2:hover{
+  transform: scale(1.2);
+} */
+.sunglasses-content .trans3{
+  transform: translateY(-10%) translateX(40%);
+}
+/* .sunglasses-content .trens3:hover{
+  transform: scale(1.2) translateY(-10%) translateX(40%);
+} */
+
+
+/* 오른쪽 텍스트 */
+.sunglasses-txt-box{
+  margin-left: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* 텍스트 공통영역 */
+.text-font{
+  margin-bottom: 60px;
+}
+.text-font:last-child{
+  margin-bottom: 0;
+}
+.text-font h2{
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4e4e4e;
+}
+.text-font p{
+  color: #A8A8A8;
+  font-size: 1.25rem;
+}
+/* 텍스트 헤더 */
+.text-font .head-txt{
+  font-size: 2.5rem;
+  font-weight:700;
+}
+/* //선글라스영역 */
+
+/* 글라스영역 */
+.glasses-area .container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-top: 300px;
+}
+.glasses-content{
+  background:url(../gentlemonster/glassesbg.svg) no-repeat center ;
+  background-size: contain;
+  width: 705px;
+  height: 705px;
+}
+/* 글라스 텍스트 */
+.glasses-txt-box{
+  margin-left: 112px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+/* 글라스 아이템 */
+.glasses-content .glasses-item{
+  width: 250px;
+  height: 350px;
+  transition: 0.5s;
+}
+
+.glasses-content .g-trans1{
+  transform: translateX(45%);
+}
+.glasses-content .g-trans1:hover{
+  transform: scale(1.2) translateX(15%);
+}
+.glasses-content .g-trans2{
+  transform: translateY(-60%) translateX(120%);
+}
+.glasses-content .g-trans2:hover{
+  transform: scale(1.2) translateY(-60%) translateX(120%);
+}
+.glasses-content .g-trans3{
+  transform: translateY(-95%) translateX(30%);
+}
+.glasses-content .g-trans3:hover{
+  transform: scale(1.2) translateY(-75%) translateX(15%);
+}
+
+/*// 글라스 영역 */
+
+/* 매장영역 */
+.shop-area .container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 100vw;
+  margin-top: 240px;
+
+}
+.shop-box{
+  margin-right: 24px;
+}
+.shop-box:last-child{
+  margin-right: 0;
+}
+/* 백그라운드이미지 */
+.shop-box .bgimg-box{
+  width: 500px;
+  height: 350px;
+}
+.shop-box .bg1{
+  background: url(../gentlemonster/bg1.svg) no-repeat center;
+  background-size: contain;
+}
+.shop-box .bg2{
+  background: url(../gentlemonster/bg2.svg) no-repeat center;
+  background-size: contain;
+}
+.shop-box .bg3{
+  background: url(../gentlemonster/bg3.svg) no-repeat center;
+  background-size: contain;
+}
+
+
+/* 이미지 */
+.shop-box .bgimg-box .img-box{
+  width: 400px;
+  height: 250px;
+  position: relative;
+}
+.shop-box .bgimg-box .img-box::after,
+.shop-box .bgimg-box .img-box::before{
+  content: '';
+  position: absolute;
+  top: 7%;
+  left: 4%;
+  transition: all 0.35s;
+  width: 91%;
+  height: 86%;
+  cursor: pointer;
+}
+.shop-box .bgimg-box .img-box::after{
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  width: 0;
+}
+.shop-box .bgimg-box .img-box::before{
+  border-left: 2px solid #fff;
+  border-right: 2px solid #fff;
+  height: 0;
+}
+.shop-box .bgimg-box .img-box:hover{
+  filter: grayscale(90%);
+}
+.shop-box .bgimg-box .img-box:hover::after{
+  width: 92%;
+}
+.shop-box .bgimg-box .img-box:hover::before{
+  height:87%;
+}
+.shop-box .bgimg-box .img-box:hover span{
+  opacity: 1;
+}
+
+.shop-box .bgimg-box .img-box{
+  transform: translateY(15%) translateX(10%)
+}
+
+.shop-box .bgimg-box .img-box span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: 0.35s;
+}
+
+/* 택스트 */
+.shop-box .shop-txt{
+  transform: translateY(15%) translateX(10%)
+}
+
+.shop-box .shop-txt h3{
+  font-size: 1.25rem;
+  color: #4e4e4e;
+  margin-bottom: 20px;
+}
+
+.shop-box .shop-txt p{
+  font-size: 1rem;
+  color: #A8A8A8;
+  margin-bottom: 24px;
+}
+
+.shop-box .shop-txt span{
+  font-size: 1rem;
+  color: #A8A8A8;
+}
+
+/*// 매장영역 */
+
+/* 푸터영역 */
+.footer .container{
+  background-color: #b6b6b6;
+  opacity: .8;
+  margin-top: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+/* 푸터메인 */
+.footer-main{
+  display: flex;
+  margin-bottom: 80px;
+  margin-top: 136px;
+}
+.footer-main ul{
+  margin-right: 160px;
+}
+.footer-main ul:last-child{
+  margin-right: 0;
+}
+
+.footer-main ul li{
+  margin-bottom: 8px;
+}
+.footer-main ul li:last-child{
+  margin-bottom: 0;
+}
+
+.footer-main ul li a{
+  font-size: 0.825rem;
+  color: #EFEFEF;
+  font-weight: 200;
+}
+
+.footer-main ul .head a{
+  color: #343434;
+}
+.footer-main ul .head{
+  margin-bottom: 24px;
+}
+
+/* 푸터미드 */
+.footer-mid{
+  color: #343434;
+  font-size: 0.825rem;
+  margin-bottom: 80px;
+}
+
+/* 푸터바텀 */
+.footer-bottom{
+  width: 617px;
+  margin-bottom: 40px;
+}
+.footer-bottom span{
+  color: #343434;
+  opacity: .8;
+  font-size: 0.75rem;
+}
+.footer-bottom a{
+  color: #343434;
+  opacity: .8;
+  font-size: 0.75rem;
+}
+
+.m-footer{
+  display: none;
+}
+
+
+/* 반응형 영역 */
+@media(max-width:1740px){
+  /* 화살표 포지션조정 */
+  /* 로고위드값 줄이기 */
+  /* 메뉴 폰트값 수정 */
+
+  .header .logo svg{
+    width: 240px;
+  }
+  .main-menu li a{
+    font-size: 1.1rem;
+  }
+
+  .style-area .arrow .left-arrow{
+    left: 17%;
+  }
+  .style-area .arrow .right-arrow{
+    right: 17%;
+  }
+
+}
+
+@media(max-width:1580px){
+  /* 이미지 크기값 수정*/
+  /* 탑스토어 슬라이드부분 보여주는 영역수정 */
+  /* 화살표 포지션조정 */
+  /* 폰트사이즈수정 */
+
+  .banner-area .banner-txt-box h1{
+    font-size: 2.5rem;
+  }
+  .banner-area  .banner-txt-box .banner-btn #pay-btn{
+    padding: 1rem 2.5rem;
+  }
+  .banner-area  .banner-txt-box .banner-btn #view-btn{
+    padding: 1rem 2rem;
+  }
+
+  .style-area .top-store .mask{
+    width: 476px;
+  }  
+
+  .style-area .arrow .left-arrow{
+    left: 25%;
+  }
+  .style-area .arrow .right-arrow{
+    right: 25%;
+  }
+
+  .style-main .rectangle1{
+    width: 340px;
+    height: 420px;
+  }
+  .style-main .rectangle2{
+    width: 480px;
+    height: 570px;
+  }
+  .style-main .rectangle3{
+    width: 360px;
+    height: 440px;
+  }
+
+  .text-font .head-txt{
+    font-size: 2rem;
+  }
+  .text-font h2{
+    font-size: 1.6rem;
+  }
+  .text-font p{
+    font-size: 1.1rem;
+  }
+
+
+  .shop-box .bgimg-box{
+    width: 450px;
+    height: 250px;
+  }
+  .shop-box .bgimg-box .img-box{
+    width: 350px;
+    height: 200px;
+  }
+}
+
+@media(max-width:1345px){
+  /* 햄버거버튼 */
+  /* 이미지 크기값 수정 */
+  .banner-area .header{
+    display: none;
+  }
+  .banner-area .m-header{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    z-index: 9999;
+  }
+  .banner-area .m-header .m-logo svg{
+    width: 200px;
+    fill: #fff;
+    margin-right: 120px;
+    margin-left: 32px;
+    transition: all 0.35s;
+  }
+
+  .banner-area .m-header .m-hamburger{
+    width: 40px;
+    height: 20px;
+    display: block;
+    background-color: transparent;
+    margin-right: 32px;
+    position: relative;
+  }
+  .banner-area .m-header .m-hamburger span{
+    width: 40px;
+    height: 4px;
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 3px;
+    transition: all 0.35s;
+  }
+  .banner-area .m-header .m-hamburger .span2{
+    top: 50%;
+  }
+  .banner-area .m-header .m-hamburger .span3{
+    top: 100%;
+  }
+  .banner-area .m-top-btn{
+    display: block;
+    position: fixed;
+    z-index: 1;
+    right: 4%;
+    bottom: 4%;
+  }
+  .banner-area .m-top-btn svg{
+    fill: #343434;
+    width: 30px;
+    height: 30px;
+    padding: 8px;
+    border: #343434 solid 2px;
+  }
+
+  .banner-area .m-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    background-color: #343434;
+    /* display: flex; */
+    opacity: 0.8;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  .banner-area .m-nav .m-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .banner-area .m-nav .m-menu li{
+    margin-top: 40px;
+  }
+  .banner-area .m-nav .m-menu li:first-child{
+    margin-top: 0;
+  }
+  .banner-area .m-nav .m-menu li:hover a{
+    color: #fff;
+  }
+  .banner-area .m-nav .m-menu li a{
+    font-size: 2rem;
+    color: #a19f9f;
+    transition: all 0.35s;
+  }
+
+  @keyframes main-input {
+    100%{
+      transform: scaleX(1.8) scaleY(1.3) translateY(-400%);
+      border-radius: 20px;
+      opacity: 0;
+    }
+  }
+
+  .style-area .arrow .left-arrow{
+    left: 15%;
+  }
+  .style-area .arrow .right-arrow{
+    right: 15%;
+  }
+
+  .style-main .style-main-bg{
+    height: auto;
+    margin-top: 100px;
+  }
+
+  .style-main .rectangle1{
+    width: 290px;
+    height: 370px;
+  }
+  .style-main .rectangle2{
+    width: 400px;
+    height: 500px;
+  }
+  .style-main .rectangle3{
+    width: 310px;
+    height: 390px;
+  }
+
+  .text-font p{
+    font-size: 1rem;
+    word-break: keep-all;
+  }
+  .sunglasses-content{
+    width: 585px;
+    height: 480px;
+  }
+  .sunglasses-content .sunglasses-item{
+    width: 300px;
+    height: 200px;
+  }
+  .sunglasses-content .trans1{
+    transform: translateY(10%) translateX(60%);
+  }
+  .sunglasses-content .trans2{
+    transform:  translateX(20%);
+  }
+  .sunglasses-content .trans3{
+    transform: translateY(-10%) translateX(60%);
+  }
+  .sunglasses-txt-box{
+    margin-left: 60px;
+  }
+
+  .glasses-content{
+    width: 600px;
+    height: 600px;
+  }
+
+  .glasses-content .glasses-item{
+    width: 200px;
+    height: 300px;
+  }
+
+  .glasses-content .g-trans1{
+    transform: translateX(75%);
+  }
+  .glasses-content .g-trans1:hover{
+    transform: scale(1.1) translateX(45%);
+  }
+  .glasses-content .g-trans2{
+    transform: translateY(-60%) translateX(150%);
+  }
+  .glasses-content .g-trans2:hover{
+    transform: scale(1.1) translateY(-60%) translateX(150%);
+  }
+  .glasses-content .g-trans3{
+    transform: translateY(-95%) translateX(60%);
+  }
+  .glasses-content .g-trans3:hover{
+    transform: scale(1.1) translateY(-75%) translateX(45%);
+  }
+  
+
+
+
+  .shop-box .bgimg-box{
+    width: 400px;
+    height: 200px;
+  }
+  .shop-box .bgimg-box .img-box{
+    width: 300px;
+    height: 150px;
+  }
+  .shop-box .bgimg-box .img-box span{
+    font-size: 1rem;
+  }
+}
+
+@media(max-width:1190px){
+  /* shop영역 수정*/
+  /* style영역 수정 */
+  /* text 수정 */
+  /* 스와이퍼 하나빼기 */
+  .banner-txt-box #main-search::placeholder{
+    color: #c4c4c4;
+    text-align: center;
+    font-size: 11px;
+  }
+  .swiper-left{
+    width: 100vw;
+    height: 100vh;
+  }
+  .banner-l-slide4{
+    background: url(../gentlemonster/banner-img4.jpg)no-repeat 0 0;
+    background-size: cover;
+  }
+  .banner-l-slide5{
+    background: url(../gentlemonster/banner-img5.jpg)no-repeat 0 0;
+    background-size: cover;
+  }
+  .swiper-right{
+    display: none;
+  }
+
+  .style-main .rectangle1{
+    width: 240px;
+    height: 320px;
+  }
+  .style-main .rectangle2{
+    width: 380px;
+    height: 470px;
+  }
+  .style-main .rectangle3{
+    width: 260px;
+    height: 340px;
+  }
+
+  .shop-box .bgimg-box{
+    width: 350px;
+    height: 200px;
+  }
+  .shop-box .bgimg-box .img-box{
+    width: 300px;
+    height: 150px;
+  }
+}
+
+@media(max-width:1000px){
+  /* glasses,sunglasses 컨텐츠 변경 */
+  /* store top 영역 변경 */
+  /* fz조절 */
+
+  .banner-txt-box .banner-btn #pay-btn{
+    font-size: 0.825rem;
+    padding: 0.5rem 2rem;
+  }
+  .banner-txt-box .banner-btn #view-btn{
+    font-size: 0.825rem;
+    padding: 0.5rem 1.5rem;
+  }
+  @keyframes main-input {
+    100%{
+      transform: scaleX(1.5) scaleY(1.2) translateY(-400%);
+      border-radius: 20px;
+      opacity: 0;
+    }
+  }
+  
+  .style-area .arrow .left-arrow{
+    left:7%;
+  }
+  .style-area .arrow .right-arrow{
+    right:7%;
+  }
+
+  .m-head{
+    font-size: 2rem;
+    color: #343434;
+    margin-bottom: 32px;
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .style-main{
+    margin-top: 0;
+  }
+  .style-main .rectangle2{
+    width: 300px;
+    height: 350px;
+  }
+  .style-main .rectangle3{
+    display: none;
+  }
+  .sunglasses-area .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .sunglasses-txt-box{
+    display: none;
+  }
+  .sunglasses-content{
+    background-image: none;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .sunglasses-content .sunglasses-item{
+    width: 500px;
+    height: 250px;
+    transform: none;
+    margin-bottom: 72px;
+  }
+
+  .sunglasses-content .trans1{
+    content: url(../gentlemonster/르모바일.jpg);
+  }
+  .sunglasses-content .trans2{
+    content: url(../gentlemonster/탐부모바일.jpg);
+  }
+  .sunglasses-content .trans3{
+    content: url(../gentlemonster/큰네모난선구리모바일.jpg);
+    margin-bottom: 0;
+  }
+  
+
+  .glasses-area .container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .glasses-content{
+    background-image: none;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .glasses-content .sunglasses-item:last-child{
+    margin-bottom: 0;
+  }
+
+  .glasses-txt-box{
+    display: none;
+  }
+  
+
+  .glasses-content .glasses-item{
+    width: 500px;
+    height: 250px;
+    transform: none;
+    margin-bottom: 72px;
+  }
+  .glasses-content .g-trans1{
+    content: url(../gentlemonster/제프모바일.jpg);
+  }
+  .glasses-content .g-trans1:hover{
+    transform: scale(1.1);
+  }
+  .glasses-content .g-trans2:hover{
+    transform: scale(1.1);
+  }
+  .glasses-content .g-trans2{
+    content: url(../gentlemonster/알리오모바일.jpg);
+  }
+  .glasses-content .g-trans3:hover{
+    transform: scale(1.1);
+  }
+  .glasses-content .g-trans3{
+    content: url(../gentlemonster/에디모바일.jpg);
+  }
+  .text-font{
+    display: none;
+  }
+
+  .shop-area .container{
+    flex-direction: column;
+  }
+  .shop-box{
+    margin-right: 0;
+    margin-bottom: 72px;
+    position: relative;
+  }
+  .shop-box .bgimg-box{
+    background-image: none;
+    width: auto;
+    height: auto;
+  }
+  .shop-box .bgimg-box .img-box{
+    transform: none;
+    width: 500px;
+    height: 300px;
+  }
+  .shop-box .bgimg-box .img-box:hover span{
+    opacity: 0;
+  }
+  .shop-box:hover .bgimg-box .img-box{
+    filter: grayscale(90%);
+  }
+  .shop-box:hover .bgimg-box .img-box::after{
+    width: 92%;
+  }
+  .shop-box:hover .bgimg-box .img-box::before{
+    height:87%;
+  }
+  .shop-box:hover .shop-txt{
+    opacity: 1;
+  }
+  .shop-box .shop-txt{
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    transition: all 0.5s;
+  }
+  .shop-box .shop-txt h3{
+    color: #EFEFEF;
+  }
+  .shop-box .shop-txt p{
+    color: #fff;
+  }
+  .shop-box .shop-txt span{
+    color: #fff;
+  }
+}
+
+@media(max-width:765px){
+  /* 배너택스트 줄이기 */
+  /* 탑스토어 없애기 */
+  /* 브랜드 스타일 bg이미지 바궈주기 */
+  /* 푸터수정 */
+  .banner-area .banner-txt-box h1{
+    font-size: 2rem;
+  }
+
+ 
+  .style-area .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 120px;
+  }
+  .m-style{
+    font-size: 2rem;
+    color: #343434;
+  }
+  .top-store{
+    display: none;
+  }
+  .m-style{
+    display: block;
+  }
+  .style-main .style-main-bg{
+    background: url(../gentlemonster/m-style-bg.svg) no-repeat center;
+    background-size: contain;
+    width: 420px;
+    height: 685px;
+    margin-top: 0;
+  }
+  .style-main:hover .style-main-bg{
+    animation: none;
+  }
+
+  .style-main .rectangle1{
+    width: 250px;
+    height: 400px;
+    transform: rotate(7deg) translateX(20%) translateY(-20%);
+    opacity: 0.9;
+  }
+  .style-main .rectangle2{
+    width: 250px;
+    height: 400px;
+    transform: rotate(-5deg) translateX(-20%) translateY(30%);
+    opacity: 0.8;
+  }
+
+  .sunglasses-content .sunglasses-item{
+    width: 400px;
+    height: 200px;
+  }
+  .glasses-content .glasses-item{
+    width: 400px;
+    height: 200px;
+  }
+
+  .shop-box .bgimg-box .img-box{
+    transform: none;
+    width: 400px;
+    height: 200px;
+  }
+  .shop-box .shop-txt h3{
+    color: #EFEFEF;
+    font-size: 1rem;
+  }
+  .shop-box .shop-txt p{
+    color: #fff;
+    font-size: 0.825rem;
+  }
+  .shop-box .shop-txt span{
+    color: #fff;
+    font-size: 0.825rem;
+  }
+
+  .footer{
+    display: none;
+  }
+  .footer-bottom{
+    width: auto;
+  }
+  .m-footer{
+    display: block;
+  }
+  .m-footer .container{
+    background-color: #c4c4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .m-footer-section .m-footer-btn{
+    border-bottom: 1px #EFEFEF solid;
+  }
+  .m-footer-section .m-footer-btn{
+    width: 90vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0;
+    cursor: pointer;
+    
+  }
+  .m-footer-section .m-footer-btn span{
+    color: #343434;
+  }
+  .m-footer-section .m-footer-btn span:first-child{
+    margin-left: 32px;
+  }
+  .m-footer-section .m-footer-btn span:last-child{
+    margin-right: 32px;
+  }
+
+  .m-footer-section .m-footer-item-box{
+    display: none;
+  }
+
+  .m-footer-item-box .m-footer-item{
+    margin:32px;
+  }
+  .m-footer-item-box .m-footer-item li{
+    margin-bottom: 16px;
+  }
+  .m-footer-item-box .m-footer-item li:last-child{
+    margin-bottom: 0;
+  }
+  .m-footer-item-box .m-footer-item li a{
+    color: #EFEFEF;
+  }
+
+  .m-footer .footer-mid{
+    margin-top: 72px;
+  }
+}
+
+@media(max-width:620px){
+  /* 배너 텍스트 크기조정 */
+  .banner-area .banner-txt-box h1{
+    font-size: 1.5rem;
+  }
+
+  .popular-box{
+    display: none;
+  }
+
+  .banner-area .banner-txt-box .banner-btn #pay-btn{
+    padding: 0.825rem  1.5rem;
+  }
+  .banner-area .banner-txt-box .banner-btn #view-btn{
+    padding: 0.825rem  1rem;
+  }
+}
+
+@media(max-width:500px) {
+
+  /* .banner-area .m-top-btn{
+    right: 50px;
+    bottom: 50px;
+  } */
+
+  .banner-area .m-header .m-logo svg{
+    width: 150px;
+    margin-left: 32px;
+  }
+  .banner-area .m-header .m-hamburger{
+    width: 30px;
+    height: 20px;
+    margin-right: 48px;
+  }
+  .banner-area .m-header .m-hamburger span{
+    height: 2px;
+  }
+
+  .banner-area .banner-txt-box .banner-btn #pay-btn{
+    padding: 0.5rem  1.1rem;
+    font-size: 0.6875rem;
+  }
+  .banner-area .banner-txt-box .banner-btn #view-btn{
+    padding: 0.5rem  0.6rem;
+    font-size: 0.6875rem;
+  }
+  .banner-area .m-nav .m-menu li a{
+    font-size: 1.5rem;
+  }
+  .style-main .style-main-bg{
+    width: 320px;
+    height: 585px;
+  }
+  .style-main .rectangle1{
+    width: 200px;
+    height: 350px;
+  }
+  .style-main .rectangle2{
+    width: 200px;
+    height: 350px;
+
+  }
+  .sunglasses-content .sunglasses-item{
+    width: 300px;
+    height: 150px;
+  }
+  .glasses-content .glasses-item{
+    width: 300px;
+    height: 150px;
+  }
+  .shop-box .bgimg-box .img-box{
+    width: 350px;
+    height: 200px;
+    position: relative;
+  }
+  
+}
