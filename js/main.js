@@ -116,8 +116,8 @@ const scroll = (e)=>{
 
 // top btn 함수 << 해결해야됨
 const goTop = (e)=>{
- //   window.scrollTo({top: 0, behavior : "smooth" }); 
-  if(window.scrollY != 0){
+  //  window.scrollTo({top: 0, behavior : "smooth" }); 
+  if(window.scrollY !== 0){
     setTimeout(()=>{
         window.scrollTo(0, window.scrollY-50);
         goTop()
@@ -283,6 +283,7 @@ const footerClick = (footerBtn, section, plus)=>{
 
   }
 };
+
 
 // 서브메뉴 나타나고 없애는 이벤트
 mainInput.addEventListener("click", fadeIn);
