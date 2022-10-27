@@ -121,7 +121,8 @@ const goTop = (e)=>{
   //  window.scrollTo({top: 0, behavior : "smooth" }); 
   const wy = window.scrollY;
   const dy = document.documentElement.scrollTop;
-  if(wy !== 0 || dy !== 0){
+  const sy = window.pageYOffset;
+  if(wy !== 0 || dy !== 0 || sy !== 0 ){
     setTimeout(()=>{
         window.scrollTo(0, window.scrollY-50);
         goTop()
