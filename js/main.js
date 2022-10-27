@@ -12,6 +12,7 @@ const headLogo = document.querySelector(".logo-svg");
 const userMenu = document.querySelector(".user-menu");
 const topBtn = document.querySelector(".top-btn");
 const mTopBtn = document.querySelector(".m-top-btn");
+
 // top store slide document
 const topStore = document.querySelector(".top-store");
 const topMeunUl = topStore.querySelector(".top-menu");
@@ -67,7 +68,7 @@ let clickFooterCount = 0;
 
 
 // 서브 메뉴 나오게하는 함수
-const fadeIn = () => {
+const fadeIn = (e) => {
   // main-search 애니메이션 재시작
   mainInput.style.setProperty("--ms", "");
   searchBox.style.setProperty("--in", "")
@@ -79,6 +80,7 @@ const fadeIn = () => {
     searchBox.style.display = "block"
     searchBox.style.setProperty("--in", " fadeIn 500ms linear forwards")
   },300);
+  e.preventDefault();
 }
 // 서브 메뉴 없애는 함수
 const fadeOut = () =>{
@@ -117,11 +119,13 @@ const scroll = (e)=>{
 // top btn 함수 << 해결해야됨
 const goTop = (e)=>{
   //  window.scrollTo({top: 0, behavior : "smooth" }); 
-  if(window.scrollY !== 0){
+  const wy = window.scrollY;
+  const dy = document.documentElement.scrollTop;
+  if(wy !== 0 || dy !== 0){
     setTimeout(()=>{
         window.scrollTo(0, window.scrollY-50);
         goTop()
-    }, 1);
+    }, 1)
   }
 }
 
@@ -216,6 +220,7 @@ function moveSlide(e) {
 
 //sunglasses 함수선언
 function magneticImg(element){
+    const ww = window.innerWidth;
 
     element.addEventListener("mousemove",e=>{
       const {offsetLeft, offsetTop, offsetWidth, offsetHeight} = element;
@@ -229,11 +234,18 @@ function magneticImg(element){
       element.style.transform =`
         translate3d(${centerX/1.7}px,${centerY/2}px,0)
       `
+       // 모바일에서 이벤트 막아주기
+      if(ww < 500){
+        e.stopPropagation()
+      }
       
     })
     element.addEventListener("mouseleave",()=>{
       element.style.transform =``
     });
+
+ 
+  
 }
   
 // 햄버거 on함수
