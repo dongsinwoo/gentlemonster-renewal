@@ -123,7 +123,7 @@ const goTop = (e)=>{
   const dy = document.documentElement.scrollTop;
   const sy = window.pageYOffset;
   const bannerArea = document.querySelector(".banner-area").offsetTop;
-  if(wy !== 0 || dy !== 0 || sy !== 0 || bannerArea !==0 ){
+  if(wy !== 0 || dy !== 0 || sy !== 0 || !bannerArea ){
     setTimeout(()=>{
         window.scrollTo(0, window.scrollY-50);
         goTop()
