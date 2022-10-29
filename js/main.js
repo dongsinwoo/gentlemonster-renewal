@@ -122,7 +122,8 @@ const goTop = (e)=>{
   const wy = window.scrollY;
   const dy = document.documentElement.scrollTop;
   const sy = window.pageYOffset;
-  if(wy !== 0 || dy !== 0 || sy !== 0 ){
+  const bannerArea = document.querySelector(".banner-area").offsetTop;
+  if(wy !== 0 || dy !== 0 || sy !== 0 || bannerArea !==0 ){
     setTimeout(()=>{
         window.scrollTo(0, window.scrollY-50);
         goTop()
@@ -221,32 +222,29 @@ function moveSlide(e) {
 
 //sunglasses 함수선언
 function magneticImg(element){
-    const ww = window.innerWidth;
+    const ww = document.documentElement.clientWidth;
 
-    element.addEventListener("mousemove",e=>{
-      const {offsetLeft, offsetTop, offsetWidth, offsetHeight} = element;
-      // 레프트 탑값
-      const left = e.pageX - offsetLeft;
-      const top = e.pageY - offsetTop;
-      // 센터값
-      const centerX  = left - offsetWidth / 2 ;
-      const centerY = top - offsetHeight / 2 ;
-      // console.log(centerX,centerY,d);
-      element.style.transform =`
-        translate3d(${centerX/1.7}px,${centerY/2}px,0)
-      `
-       // 모바일에서 이벤트 막아주기
-      if(ww < 500){
-        e.stopPropagation()
-      }
-      
-    })
-    element.addEventListener("mouseleave",()=>{
-      element.style.transform =``
-    });
-
- 
-  
+    if(ww <= 500){
+      return false
+    }else if(ww > 500){
+      element.addEventListener("mousemove",e=>{
+        const {offsetLeft, offsetTop, offsetWidth, offsetHeight} = element;
+        // 레프트 탑값
+        const left = e.pageX - offsetLeft;
+        const top = e.pageY - offsetTop;
+        // 센터값
+        const centerX  = left - offsetWidth / 2 ;
+        const centerY = top - offsetHeight / 2 ;
+        // console.log(centerX,centerY,d);
+        element.style.transform =`
+          translate3d(${centerX/1.7}px,${centerY/2}px,0)
+        `
+      })
+      element.addEventListener("mouseleave",()=>{
+        element.style.transform =``
+      });
+    }
+   
 }
   
 // 햄버거 on함수
