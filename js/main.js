@@ -1,6 +1,7 @@
 //배너 검색창 >> 서브 검색창 띄우기 
 const mainInput = document.getElementById("main-search");
 const searchBox = document.getElementById("search-box");
+const subInput = document.getElementById("sub-search")
 const xBtn = document.getElementById("x-btn-box");
 
 // 버튼 물결효과 js document
@@ -82,10 +83,23 @@ const fadeIn = (e) => {
     searchBox.style.setProperty("--in", " fadeIn 500ms linear forwards")
   },300);
   e.preventDefault();
-}
+};
+
 // 서브 메뉴 없애는 함수
 const fadeOut = () =>{
   searchBox.style.display = "none"
+  mainInput.value = "";
+  subInput.value = "";
+};
+
+// value값 key up
+const inputData = (e)=>{
+  subInput.value = e.target.value
+};
+
+// 서브인풋 엔터누르면 새로고침
+const reload = ()=>{
+  location.reload()
 }
 
 // 스크롤 변환 함수
@@ -94,7 +108,7 @@ const scroll = (e)=>{
   const styelArea = document.querySelector(".style-area").offsetTop;
   
   // scroll시 서브서치박스 없애기
-  searchBox.style.display = "none"
+  fadeOut();
   if(scrollTop>=0 && scrollTop<styelArea){
     headLogo.style.fill="#fff";
     headLogo.style.transform = "scale(1)"
@@ -115,7 +129,7 @@ const scroll = (e)=>{
     hamSpan3.style.backgroundColor = "#343434"
     mLogo.style.fill = "#343434"
   }
-}
+};
 
 // top btn 함수 << 해결해야됨
 const goTop = (e)=>{
@@ -134,7 +148,7 @@ const goTop = (e)=>{
     window.scrollTo({top: 0, behavior:"smooth"});
   }
  
-}
+};
 
 // 자세히보기 물결효과 버튼
 const click1 = (e) => {
@@ -157,7 +171,7 @@ const click1 = (e) => {
     setTimeout(() => {
       viewBtn.style.setProperty("--a", "view-ripple 500ms linear");
     }, );
-}
+};
   
 // 구매하기 물결효과 버튼  
 const click2 = (e) => {
@@ -179,7 +193,7 @@ const click2 = (e) => {
     setTimeout(() => {
       payBtn.style.setProperty("--b", "view-ripple 500ms linear");
     }, );
-}
+};
   
 // 스와이퍼 함수
 function swp(){
@@ -205,7 +219,7 @@ function swp(){
       loop: true,
       allowTouchMove:false
     });
-}
+};
   
 // top store 함수
 function moveSlide(e) {
@@ -223,7 +237,7 @@ function moveSlide(e) {
         crrentIdx -=1;
       }
     } 
-}
+};
 
 //sunglasses 함수선언
 function magneticImg(element){
@@ -248,7 +262,7 @@ function magneticImg(element){
       });
     }
    
-}
+};
   
 // 햄버거 on함수
 const hamburgerOn = (e)=>{
@@ -299,9 +313,13 @@ const footerClick = (footerBtn, section, plus)=>{
 };
 
 
+
 // 서브메뉴 나타나고 없애는 이벤트
-mainInput.addEventListener("click", fadeIn);
-xBtn.addEventListener("click", fadeOut);
+mainInput.addEventListener("click",fadeIn);
+mainInput.addEventListener("keyup",inputData);
+mainInput.addEventListener("change",reload);
+subInput.addEventListener("change",reload);
+xBtn.addEventListener("click",fadeOut);
 
 // 스크롤 이벤트 + 탑버튼
 window.addEventListener("scroll",scroll);
