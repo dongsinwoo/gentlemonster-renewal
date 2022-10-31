@@ -45,7 +45,8 @@ const plus1 =document.querySelector(".plus1");
 const plus2 =document.querySelector(".plus2");
 const plus3 =document.querySelector(".plus3");
 
-
+// 웹브라우져 위드값
+const ww = document.documentElement.clientWidth;
 
 
 
@@ -122,13 +123,17 @@ const goTop = (e)=>{
   const wy = window.scrollY;
   const dy = document.documentElement.scrollTop;
   const sy = window.pageYOffset;
-  const bannerArea = document.querySelector(".banner-area").offsetTop;
-  if(wy !== 0 || dy !== 0 || sy !== 0 || !bannerArea ){
-    setTimeout(()=>{
-        window.scrollTo(0, window.scrollY-50);
-        goTop()
-    }, 1)
+  if(ww > 500){
+    if(wy !== 0 || dy !== 0 || sy !== 0 ){
+      setTimeout(()=>{
+          window.scrollTo(0, window.scrollY-50);
+          goTop()
+      }, 1)
+    }
+  }else if(ww<=500){
+    window.scrollTo({top: 0, behavior:"smooth"});
   }
+ 
 }
 
 // 자세히보기 물결효과 버튼
@@ -222,8 +227,6 @@ function moveSlide(e) {
 
 //sunglasses 함수선언
 function magneticImg(element){
-    const ww = document.documentElement.clientWidth;
-
     if(ww <= 500){
       return false
     }else if(ww > 500){
