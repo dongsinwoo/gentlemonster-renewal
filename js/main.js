@@ -285,6 +285,9 @@ const mMagneticImg = (element)=>{
     element.addEventListener("touchend",()=>{
       element.style.transform =``
     });
+    window.addEventListener("touchend",()=>{
+      element.style.transform =``
+    });
   }else{
     return false
   }
