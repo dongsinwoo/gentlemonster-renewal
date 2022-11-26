@@ -304,6 +304,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
   margin-bottom: 32px;
   --ms:initial;
   animation: var(--ms);
+  caret-color: transparent;
 }
 @keyframes main-input {
   100%{

@@ -97,18 +97,12 @@ const inputData = (e)=>{
   subInput.value = e.target.value
 };
 
-// 서브인풋 엔터누르면 새로고침
-const reload = ()=>{
-  location.reload();
-};
 
 // 스크롤 변환 함수
 const scroll = (e)=>{
   const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const styelArea = document.querySelector(".style-area").offsetTop;
-  
-  // scroll시 서브서치박스 없애기
-  fadeOut();
+
   if(scrollTop>=0 && scrollTop<styelArea){
     headLogo.style.fill="#fff";
     headLogo.style.transform = "scale(1)"
@@ -347,12 +341,18 @@ const footerClick = (footerBtn, section, plus)=>{
 // 서브메뉴 나타나고 없애는 이벤트
 mainInput.addEventListener("click",fadeIn);
 mainInput.addEventListener("keyup",inputData);
-mainInput.addEventListener("change",reload);
-subInput.addEventListener("change",reload);
 xBtn.addEventListener("click",fadeOut);
 
 // 스크롤 이벤트 + 탑버튼
 window.addEventListener("scroll",scroll);
+window.addEventListener("wheel",(e)=>{
+  const dt = e.deltaY
+  if(dt > 0){
+    fadeOut()
+  }else{
+    return false
+  }
+})
 topBtn.addEventListener("click",goTop);
 mTopBtn.addEventListener("click",goTop);
 scroll();
