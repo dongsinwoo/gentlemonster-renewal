@@ -282,7 +282,7 @@ const mMagneticImg = (element)=>{
         translate3d(${centerX/1.7}px,${centerY/2}px,0)
       `
     })
-    element.addEventListener("touch",()=>{
+    element.addEventListener("touchend",()=>{
       element.style.transform =``
     });
   }else{
