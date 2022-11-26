@@ -99,8 +99,8 @@ const inputData = (e)=>{
 
 // 서브인풋 엔터누르면 새로고침
 const reload = ()=>{
-  location.reload()
-}
+  location.reload();
+};
 
 // 스크롤 변환 함수
 const scroll = (e)=>{
@@ -137,17 +137,21 @@ const goTop = (e)=>{
   const wy = window.scrollY;
   const dy = document.documentElement.scrollTop;
   const sy = window.pageYOffset;
-  if(ww > 500){
-    if(wy !== 0 || dy !== 0 || sy !== 0 ){
-      setTimeout(()=>{
-          window.scrollTo(0, window.scrollY-50);
-          goTop()
-      }, 1)
-    }
-  }else if(ww<=500){
+  
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     window.scrollTo({top: 0, behavior:"smooth"});
+  }else{
+    if(ww > 500){
+      if(wy !== 0 || dy !== 0 || sy !== 0 ){
+        setTimeout(()=>{
+            window.scrollTo(0, window.scrollY-50);
+            goTop()
+        }, 1)
+      }
+    }else if(ww<=500){
+      window.scrollTo({top: 0, behavior:"smooth"});
+    }
   }
- 
 };
 
 // 자세히보기 물결효과 버튼
@@ -222,7 +226,7 @@ function swp(){
 };
   
 // top store 함수
-function moveSlide(e) {
+const moveSlide =(e)=>{
     e.preventDefault();
     if(e.target.className === "right"){
       if(crrentIdx !== itemLi.length-7){
@@ -240,7 +244,7 @@ function moveSlide(e) {
 };
 
 //sunglasses 함수선언
-function magneticImg(element){
+const magneticImg = (element)=>{
     if(ww <= 500){
       return false
     }else if(ww > 500){
@@ -261,8 +265,31 @@ function magneticImg(element){
         element.style.transform =``
       });
     }
-   
 };
+
+const mMagneticImg = (element)=>{
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    element.addEventListener("touchmove",e=>{
+      const {offsetLeft, offsetTop, offsetWidth, offsetHeight} = element;
+      // 레프트 탑값
+      const left = e.pageX - offsetLeft;
+      const top = e.pageY - offsetTop;
+      // 센터값
+      const centerX  = left - offsetWidth / 2 ;
+      const centerY = top - offsetHeight / 2 ;
+      // console.log(centerX,centerY,d);
+      element.style.transform =`
+        translate3d(${centerX/1.7}px,${centerY/2}px,0)
+      `
+    })
+    element.addEventListener("touch",()=>{
+      element.style.transform =``
+    });
+  }else{
+    return false
+  }
+};
+
   
 // 햄버거 on함수
 const hamburgerOn = (e)=>{
@@ -378,6 +405,7 @@ footerBtn3.addEventListener("click",()=>{
   }
 })
 
+
 // 스와이퍼 함수선언
 swp()
 
@@ -386,6 +414,10 @@ magneticImg(sunglassesItem1);
 magneticImg(sunglassesItem2);
 magneticImg(sunglassesItem3);
 
+// 모바일터치
+mMagneticImg(sunglassesItem2);
+mMagneticImg(sunglassesItem1);
+mMagneticImg(sunglassesItem3);
 
 
 

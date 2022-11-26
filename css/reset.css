@@ -5,10 +5,10 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body{
-    box-sizing: border-box;
     letter-spacing: -0.1rem;
     font-family: 'Noto Sans KR' ,'Roboto', sans-serif;
 }

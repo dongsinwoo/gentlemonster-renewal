@@ -317,6 +317,10 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
   color: #c4c4c4;
   text-align: center;
 }
+
+.banner-txt-box #main-search:focus{
+  outline: none;
+}
 /* click시 placeholder안보이게하기 */
 #main-search:focus::-webkit-input-placeholder,
 textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
@@ -335,6 +339,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
 .banner-txt-box .banner-btn{
   display: flex;
   justify-content: center;
+  width: 100vw;
 }
 .banner-txt-box .banner-btn a{
   font-size: 1rem;
@@ -553,7 +558,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
   transition: 0.5s;
   position: absolute;
   left: 50%;
-  top: 37%;
+  top: 36%;
   transform: translate(-50%,-50%);
   width: 110px;
   height: 110px;
@@ -1325,11 +1330,11 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
   /* fz조절 */
 
   .banner-txt-box .banner-btn #pay-btn{
-    font-size: 0.825rem;
+    font-size: 1rem;
     padding: 0.5rem 2rem;
   }
   .banner-txt-box .banner-btn #view-btn{
-    font-size: 0.825rem;
+    font-size: 1rem;
     padding: 0.5rem 1.5rem;
   }
   @keyframes main-input {
@@ -1519,7 +1524,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 120px;
+    padding-top: 120px;
   }
   .m-style{
     font-size: 2rem;
@@ -1655,12 +1660,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
     display: none;
   }
 
-  .banner-area .banner-txt-box .banner-btn #pay-btn{
-    padding: 0.825rem  1.5rem;
-  }
-  .banner-area .banner-txt-box .banner-btn #view-btn{
-    padding: 0.825rem  1rem;
-  }
+
 }
 
 @media(max-width:500px) {
@@ -1683,14 +1683,6 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
     height: 2px;
   }
 
-  .banner-area .banner-txt-box .banner-btn #pay-btn{
-    padding: 0.5rem  1.1rem;
-    font-size: 0.6875rem;
-  }
-  .banner-area .banner-txt-box .banner-btn #view-btn{
-    padding: 0.5rem  0.8rem;
-    font-size: 0.6875rem;
-  }
   .banner-area .m-nav .m-menu li a{
     font-size: 1.5rem;
   }
@@ -1711,7 +1703,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
     width: 300px;
     height: 150px;
   }
-
+/* 
   .sunglasses-content .trans1:hover{
     transform: scale(1.1);
     transition: all 0.5s;
@@ -1724,7 +1716,7 @@ textarea:focus::-webkit-input-placeholder { /* WebKit browsers */
   .sunglasses-content .trans3:hover{
     transform: scale(1.1);
     transition: all 0.5s;
-  }
+  } */
  
   .glasses-content .glasses-item{
     width: 300px;
